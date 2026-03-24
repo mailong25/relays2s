@@ -1,0 +1,28 @@
+overview_conf:
+  encoder-input-dim: 80
+  encoder-layer-config: subsampling-transformer
+  encoder-output-dim: 1024
+para_conf:
+  subsampling:
+    subsampling-dropout-rate: 0.1
+    subsampling-input-dim: 80
+    subsampling-output-dim: 1024
+    subsampling-rate: 4
+  transformer:
+    transformer-attention-dim: 1024
+    transformer-attention-dropout-rate: 0.0
+    transformer-attention-heads: 16
+    transformer-chunk_size: 4
+    transformer-concat-after: false
+    transformer-dropout-rate: 0.1
+    transformer-dynamic-chunks: false
+    transformer-input-dim: 1024
+    transformer-input-layer: linear
+    transformer-left_chunks: 16
+    transformer-linear-units: 4096
+    transformer-normalize-before: true
+    transformer-num-blocks: 24
+    transformer-output-dim: 1024
+    transformer-pos-enc-class: rel-enc
+    transformer-positional-dropout-rate: 0.1
+    transformer-positionwise-layer-type: linear

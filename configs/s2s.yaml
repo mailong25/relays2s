@@ -1,0 +1,50 @@
+stage: "S2S"
+seed: 42
+
+training:
+  max_steps: 1000000
+  val_steps: 10000
+  learning_rate: 3e-5
+  batch_duration: 300
+  val_batch_duration: 600
+  mixed_precision: "bf16-mixed"
+  checkpoint_dir: "checkpoints"
+  grad_clip: 1.0
+  grad_accum: 2
+  grad_checkpointing: true
+  resume_from_ckpt: null
+  load_weights_from_ckpt: null
+
+model:
+  name: "Qwen/Qwen2.5-0.5B"
+  frame_length: 0.16
+tokenizer:
+  name: "Qwen/Qwen2.5-0.5B"
+
+data:
+  train_shar: null
+  val_shar: null
+  max_val_samples: 2000
+  sampling_rate: 16000
+  n_workers: 4
+
+logging:
+  log_interval: 1000
+
+eval:
+  log_features: false
+  max_gen_samples: 1000
+  max_gen_tokens_per_sample: 128
+
+wandb:
+  enabled: true
+  project: "duplex-training"
+  run_name: "s2s"
+  log_dir: "wandb"
+
+speech_encoder:
+  ckpt_path: null
+  num_freeze_layers: 12
+
+adapter:
+  ckpt_path: null
