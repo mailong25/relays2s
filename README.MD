@@ -283,10 +283,17 @@ Comming soon!
 
 ## Citation
 
-
-## License
-
-Please see `LICENSE` for details.
+```
+@misc{mai2026relays2sdualpathspeculativegeneration,
+      title={RelayS2S: A Dual-Path Speculative Generation for Real-Time Dialogue}, 
+      author={Long Mai},
+      year={2026},
+      eprint={2603.23346},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2603.23346}, 
+}
+```
 
 ## Acknowledgement
 
