@@ -1,6 +1,6 @@
 # RelayS2S — Speech-to-Speech Model
 
-This repository contains the data and training code for the speech-to-speech model described in [RelayS2S: A Dual-Path Speculative Generation for Real-Time Dialogue](https://arxiv.org/abs/XXXX.XXXXX).
+This repository contains the data and training code for the speech-to-speech model described in [RelayS2S: A Dual-Path Speculative Generation for Real-Time Dialogue](https://arxiv.org/abs/2603.23346).
 
 
 ## Architecture Overview
