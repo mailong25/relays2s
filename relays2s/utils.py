@@ -2,9 +2,7 @@ import os
 import random
 import numpy as np
 import torch
-import multiprocessing as mp
 from multiprocessing.pool import ThreadPool
-import requests
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import time
 from tqdm import tqdm

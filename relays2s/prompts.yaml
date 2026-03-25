@@ -1,0 +1,59 @@
+prefix_check:
+  num_retries: 3
+  model: gemini/gemini-3-flash-preview
+  prompt: |
+    Given the following conversation context, determine if the response prefix is sensible.
+
+    -----
+
+    Context:
+    {{ context }}
+    
+    -----
+
+    Response prefix (first 5 words): "{{ prefix }}..."
+
+    -----
+    
+    Does this prefix make sense as the beginning of a response to the above conversation?
+    Answer with a JSON object with the following format:
+    {
+        "sensible": true or false, 
+    }
+
+response_quality:
+  num_retries: 3
+  model: gemini/gemini-3-flash-lite
+  prompt: |
+    You are an expert AI quality auditor. Your task is to provide a holistic score for the assistant's last RESPONSE based on the provided CONTEXT.
+
+    Evaluate across these dimensions:
+    1. Relevance: Does it directly address the user's request without going off-topic?
+    2. Helpfulness: Does it provide useful, complete, and actionable value?
+    3. Accuracy: Is it free of hallucinations, contradictions, invented details, and overstatements? (CRITICAL — inaccuracy caps the score, see rubric below)
+    4. Clarity: Is it easy to understand and well organized?
+
+    Scoring rubric (overall integer 1–5):
+    1 = Very poor (fails to address the request, inaccurate, confusing, or harmful)
+    2 = Poor (partially relevant but missing, unclear, or contains notable  factual errors)
+    3 = Fair (addresses the request at a surface level, minor issues in accuracy or clarity)
+    4 = Good (mostly complete, relevant, and accurate with only small gaps or minor clarity issues)
+    5 = Excellent (fully addresses the request, accurate, clear, and nothing important is missing)
+    
+    Instructions:
+    - If the response contains any clear harmful, hallucination or factual error, the score must not exceed 3.
+    - Only grade the assistant's last RESPONSE, not prior context turns.
+    - Return only quality score (1–5) with no extra explanation or text. Using the the following JSON format:
+      {
+          "score": <integer 1-5>
+      }
+    
+    --------------------
+
+    CONTEXT:
+    {{ context }}
+
+    --------------------
+
+    RESPONSE (to be graded):
+    Assistant: {{ response }}
