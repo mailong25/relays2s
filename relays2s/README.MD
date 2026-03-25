@@ -1,6 +1,6 @@
 # RelayS2S — Slow Path, Prefix Verifier & Evaluation
 
-This repository contains the **slow-path pipeline, prefix verifier, and end-to-end evaluation** code for [RelayS2S: A Dual-Path Speculative Generation for Real-Time Dialogue](https://arxiv.org/abs/XXXX.XXXXX). It sits alongside the [fast-path S2S model](../zip_s2s/) and covers everything needed to reproduce the paper's quality/latency results.
+This repository contains the **slow-path pipeline, prefix verifier, and end-to-end evaluation** code for [RelayS2S: A Dual-Path Speculative Generation for Real-Time Dialogue](https://arxiv.org/abs/2603.23346). It sits alongside the [fast-path S2S model](https://github.com/mailong25/relays2s) and covers everything needed to reproduce the paper's quality/latency results.
 
 ## Architecture Overview
 
